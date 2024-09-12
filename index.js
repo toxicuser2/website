@@ -1,4 +1,4 @@
-function onClick()
+function main()
 {
   console.log("clicked!")
 }
